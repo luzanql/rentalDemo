@@ -1,0 +1,10 @@
+<div class="col">
+  <h1><%= @picture.description %><small> - <%= @picture.property.description %></small></h1>
+  <br />
+  <%= image_detail_modal_link(@picture) %>
+  <br />
+  <%= link_to 'Edit', edit_property_picture_path(@property), class: "btn btn-primary my-2"  if current_user.role.name == 'host' %>
+  <br />
+  <br />
+  <%= link_to 'Back', property_pictures_path %>
+</div>

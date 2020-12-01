@@ -1,0 +1,22 @@
+<%= form_with(model: [@property, @reservation], local: true) do |form| %>
+  <%= errors_for @reservation %>
+
+  <div class="form-group">
+    <%= form.label :reservation_date %>
+    <%= form.date_field :reservation_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :number_of_nights %>
+    <%= form.number_field :number_of_nights, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :number_of_guest %>
+    <%= form.number_field :number_of_guest, class: "form-control", size:"2" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class: "btn btn-primary" %>
+  </div>
+<% end %>

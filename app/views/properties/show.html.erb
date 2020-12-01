@@ -1,0 +1,13 @@
+
+<% content_for :jumbotron do %>
+  <%= render partial: 'shared/jumbotron', locals: {
+    titles: {
+      title: @property.title,
+      subtitle: @property.description
+    },
+    add_link_name:  current_user.role.name == 'host' ? 'Add New Picture' : 'Add Reservation',
+    add_link_path: current_user.role.name == 'host' ? new_property_picture_path(@property) : new_property_reservation_path(@property)
+  } %>
+<% end %>
+
+<%= render partial: 'shared/picture', collection: @pictures %>

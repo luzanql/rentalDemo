@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_date: 2020-11-29 16:18:58
+  number_of_nights: 1
+  number_of_guest: 1
+  user: one
+  property: one
+
+two:
+  reservation_date: 2020-11-29 16:18:58
+  number_of_nights: 1
+  number_of_guest: 1
+  user: two
+  property: two

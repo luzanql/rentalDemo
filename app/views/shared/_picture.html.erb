@@ -1,0 +1,13 @@
+<%= "No pictures to show " if @pictures.empty? %>
+
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <p class="card-text"><%= picture.description %></p>
+      <div class="d-flex justify-content-between align-items-center">
+        <%= btn_group [@property, picture], edit_property_picture_path(@property, picture), property_picture_path(@property, picture) %>
+      </div>
+    </div>
+  </div>
+</div>
+
