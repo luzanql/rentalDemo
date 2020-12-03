@@ -5,16 +5,18 @@
         title: 'Properties'
       },
       add_link_name: 'Add New Property',
-      add_link_path: new_property_path
+      add_link_path: new_property_path,
+      second_link: 'Reservations',
+      add_second_link_path: reservations_path
     } %>
   <% elsif current_user.role.name == 'guest' %>
-    <%= render partial: 'shared/jumbotron', locals: {
-      titles: {
-        title: ''
-      },
-      add_link_name: 'My Reservations',
-      add_link_path: reservations_path
-    } %>
+  <%= render partial: 'shared/jumbotron', locals: {
+    titles: {
+      title: 'Properties'
+    },
+    add_link_name: 'My Reservations',
+    add_link_path: reservations_path
+  } %>
   <% end %>
 <% end %>
 

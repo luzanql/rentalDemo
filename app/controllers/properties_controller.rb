@@ -1,6 +1,9 @@
 class PropertiesController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   before_action :authenticate_user!
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :validate_role, only: [:edit, :update, :destroy]
   def index
     case current_user.role.name
     when 'host'
@@ -68,9 +71,23 @@ class PropertiesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_property
     @property = Property.find(params[:id])
+    if (current_user.role.name == 'host' && @property.user != current_user) then
+      redirect_to properties_path
+    end
   end
   # Only allow a list of trusted parameters through.
   def property_params
     params.require(:property).permit(:title, :description, :price_per_night)
+  end
+
+  private
+
+  def record_not_found
+    render plain: "404 Not Found", status: 404
+  end
+  def validate_role
+    if (current_user.role.name == 'guest') then
+      redirect_to properties_path
+    end
   end
 end

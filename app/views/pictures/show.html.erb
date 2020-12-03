@@ -6,5 +6,5 @@
   <%= link_to 'Edit', edit_property_picture_path(@property), class: "btn btn-primary my-2"  if current_user.role.name == 'host' %>
   <br />
   <br />
-  <%= link_to 'Back', property_pictures_path %>
+  <%= link_to 'Back', @property %>
 </div>

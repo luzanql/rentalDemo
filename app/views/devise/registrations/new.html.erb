@@ -26,6 +26,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :role %><br />
+    <%= f.select :role_id, {'Guest': rol_by_name('guest'), 'Host': rol_by_name('host')}, {}, { :class => 'form-control' } %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>

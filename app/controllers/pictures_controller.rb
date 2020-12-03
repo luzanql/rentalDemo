@@ -1,12 +1,7 @@
 class PicturesController < ApplicationController
   before_action :get_property
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-
-  # GET /pictures
-  # GET /pictures.json
-  def index
-    @pictures = @property.pictures
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   # GET /pictures/1
   # GET /pictures/1.json
@@ -29,7 +24,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to property_pictures_path(@property), notice: 'Picture was successfully created.' }
+        format.html { redirect_to @property, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -43,7 +38,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to property_pictures_path(@property), notice: 'Picture was successfully updated.' }
+        format.html { redirect_to @property, notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit }

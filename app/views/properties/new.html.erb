@@ -1,9 +1,10 @@
 
-<div class="col">
+<div class="col-md-12">
   <h1>New Property</h1>
-
-  <%= render 'form', property: @property %>
-  <br />
-  <br />
-  <%= link_to 'Back', properties_path %>
+  <div class="col-md-3">
+    <%= render 'form', property: @property %>
+    <br />
+    <br />
+    <%= link_to 'Back', properties_path %>
+  </div>
 </div>

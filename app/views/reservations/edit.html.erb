@@ -1,0 +1,11 @@
+<% if current_user.role.name == 'guest' %>
+  <div class="col-md-12"><h1>Editing Reservation</h1></div>
+<% elsif current_user.role.name == 'host' %>
+    <div class="col-md-12"><h1>Approve Reservation</h1></div>
+<% end %>
+<div class="col-md-3">
+  <%= render 'form', reservation: @reservation %>
+  <br />
+  <br />
+  <%= link_to 'Back', reservations_path %>
+</div>
